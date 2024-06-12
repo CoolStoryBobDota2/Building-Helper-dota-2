@@ -1,0 +1,61 @@
+// Dota Heroes File
+// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
+// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// HERO: Templar Assassin
+	//=================================================================================================================
+"npc_dota_hero_antimage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Model"		"models/heroes/antimage/antimage.vmdl"
+		"ModelScale"		"0.900000"
+		"RepairAbility"				"nightelf_gather"
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"		"build_defense"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"build_gold"
+		"Ability4"		""
+		"Ability5"		""
+		"Ability6"		""
+		"Ability10"		""
+		"Ability11"		""
+		"Ability12"		""
+		"Ability13"		""
+		"Ability14"		""
+		"Ability15"		""
+		"Ability16"		""
+		"Ability17"		""
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"		"1"
+
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"		"3"
+		"AttackDamageMax"		"3"
+		"AttackRate"		"1.400000"
+		"AttackAnimationPoint"		"0.300000"
+		"AttackAcquisitionRange"		"600"
+		"AttackRange"		"150"
+		"ProjectileSpeed"		"0"
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"		"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"19"
+		"AttributeStrengthGain"		"1.600000"
+		"AttributeBaseIntelligence"		"12"
+		"AttributeIntelligenceGain"		"1.800000"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+		"StatusHealthRegen"		"1.0"
+		"MovementSpeed"		"310"
+	}
+}

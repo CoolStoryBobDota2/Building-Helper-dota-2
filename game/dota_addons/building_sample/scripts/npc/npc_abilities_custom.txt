@@ -1,0 +1,116 @@
+"DOTAAbilities"
+
+{
+	"Version"		"1"
+
+	"build_defense"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityTextureName"            "rattletrap_power_cogs"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"				"0"
+		
+		// BuildingHelper info
+		"Building"						"1" //bool
+		"BuildTime"						"3.0"
+		"PlayerCanControl"				"1" //bool
+		"UnitName"						"npc_dota_defense_wall_1"
+
+		"AbilityCastRange"				"100"
+		"AbilityCooldown"				"0"
+		"AbilityGoldCost"				"10"
+ 
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"builder.lua"
+				"Function"		"Build"
+			}
+		}
+	}
+
+
+	"upgrade_defense_wall_1"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"MaxLevel"						"1"
+		"AbilityTextureName"            "rattletrap_power_cogs"
+		"AbilityChannelTime"			"4"
+		"AbilityGoldCost"				"15"	
+
+		"UnitName"						"npc_dota_defense_wall_2"
+
+		"OnSpellStart"
+		{
+		   "RunScript"
+			{
+				"ScriptFile"	"builder.lua"
+				"Function"		"UpgradeBegin"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"builder.lua"
+				"Function"		"UpgradeBuilding"
+			}
+		}
+		"OnChannelInterrupted"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"builder.lua"
+				"Function"		"CancelUpgradeBuilding"
+			}
+		}
+	}
+
+	"build_gold"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/building/build_gold"
+		"MaxLevel"						"1"
+		"AbilityTextureName" 			"gold_tower"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"				"0"
+		
+		// BuildingHelper info
+		"Building"						"1" //bool
+		"BuildTime"						"5.0"
+		"PlayerCanControl"				"1" //bool
+		"UnitName"						"npc_dota_gold_tower_1"
+		
+		"AbilityCastRange"				"100"
+		"AbilityCooldown"				"0"
+	}	
+
+	"repair_ability"
+	{
+		"BaseClass"					"ability_datadriven"
+
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	  	
+		"OnSpellStart"
+		{
+			"RunScript"
+	        {
+	            "ScriptFile"    "repair.lua"
+	            "Function"      "Repair"
+	        }
+		}
+	}
+}
